@@ -122,7 +122,7 @@ const App = () => {
           name,
         });
 
-        const displayName = username || user?.username;
+        const displayName = username;
 
         setSuccessMessage(`Account ${displayName} created successfully`);
         setTimeout(() => {

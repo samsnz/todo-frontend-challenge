@@ -4,6 +4,16 @@ import TodoForm from "./TodoForm";
 const Todo = ({ todo, deleteTodo, editTodo, user }) => {
   const [isToEdit, setIsToEdit] = useState(false);
 
+  const getCurrentLoggedInUsername = (userObject) => {
+    let currentUsername = null;
+    if (userObject) {
+      if (userObject.username) {
+        currentUsername = userObject.username;
+      }
+    }
+    return currentUsername;
+  };
+
   return (
     <>
       {isToEdit ? (
@@ -38,7 +48,7 @@ const Todo = ({ todo, deleteTodo, editTodo, user }) => {
             <p className="todo-owner">Owner: {todo.userId}</p>
           </div>
           <div>
-            {todo.userId === user?.username && (
+            {todo.userId === getCurrentLoggedInUsername(user) && (
               <>
                 <span
                   className="edit-todo-icon"

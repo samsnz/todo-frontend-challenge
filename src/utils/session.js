@@ -6,7 +6,7 @@ const GET_URL_CONFIG = () => {
   }
   const config = {
     headers: {
-      Authorization: `bearer ${user?.token}`,
+      Authorization: `bearer ${user.token}`,
     },
   };
 
