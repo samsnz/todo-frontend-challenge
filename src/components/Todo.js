@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 
-const Todo = ({ todo, togglePrivacy, deleteTodo, editTodo, user }) => {
-  // const [isToEdit, setIsToEdit] = useState(false);
+const Todo = ({ todo, deleteTodo, editTodo, user }) => {
   const [isToEdit, setIsToEdit] = useState(false);
-  const [todoToEdit, setTodoToEdit] = useState(null);
-
-  const label = todo.isPrivate ? "make not private" : "make private";
 
   return (
     <>
@@ -42,9 +38,6 @@ const Todo = ({ todo, togglePrivacy, deleteTodo, editTodo, user }) => {
             <p className="todo-owner">Owner: {todo.userId}</p>
           </div>
           <div>
-            {/* <button onClick={togglePrivacy}>{label}</button>
-        <button onClick={editTodo}>Edit</button>
-        <button onClick={deleteTodo}>Delete</button> */}
             {todo.userId === user?.username && (
               <>
                 <span

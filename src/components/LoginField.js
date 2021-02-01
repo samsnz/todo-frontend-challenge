@@ -1,7 +1,6 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
 const LoginField = ({
@@ -44,10 +43,9 @@ const LoginField = ({
             type="password"
             placeholder="Enter your password..."
           />
+
           {errorMessage && <p className="my-error-message">{errorMessage}</p>}
-          {/* <button className="my-button my-button-2" type="submit">
-            Login
-          </button> */}
+
           <button className="my-button my-button-2">
             Login
             {loadingSend && (
@@ -63,31 +61,6 @@ const LoginField = ({
             )}
           </button>
         </Form>
-
-        {/* <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              username
-              <input
-                id="username"
-                value={username}
-                onChange={handleUsernameChange}
-              />
-            </div>
-            <div>
-              password
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </div>
-            <button type="submit" id="login-button">
-              Login
-            </button>
-          </form>
-        </div> */}
       </Modal.Body>
     </Modal>
   );

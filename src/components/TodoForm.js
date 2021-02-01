@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const TodoForm = ({
   content = null,
-  isPrivate = false,
   todoId = null,
   createTodo,
   editTodo,
@@ -43,22 +42,6 @@ const TodoForm = ({
     setIsToEdit(false);
   };
 
-  // return (
-  //   <div className="formDiv">
-  //     <h2>Create a new todo</h2>
-
-  //     <form onSubmit={addTodo}>
-  //       <input value={newTodo.content} name="content" onChange={handleChange} />
-  //       <input
-  //         value={newTodo.isPrivate}
-  //         type="checkbox"
-  //         name="isPrivate"
-  //         onChange={handleChange}
-  //       />
-  //       <button type="submit">Save</button>
-  //     </form>
-  //   </div>
-  // );
   return (
     <div>
       <form className="add-todo" onSubmit={todoId ? changeTodo : addTodo}>

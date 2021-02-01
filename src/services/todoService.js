@@ -7,8 +7,6 @@ const SERVICE_BASE_URL = "/todos";
 const url = config.BASE_URL + SERVICE_BASE_URL;
 
 const getObjectToSendToApiWithUserId = (incompleteObject) => {
-  // console.log("whatttt", sessionUtil.usernameLoggedIn);
-  // console.log("senselessss", sessionUtil.URL_CONFIG);
   const completeObject = {
     ...incompleteObject,
     userId: sessionUtil.GET_LOGGED_IN_USER(),
@@ -22,8 +20,6 @@ const getAllTodos = async () => {
 };
 
 const createTodo = async (newTodo) => {
-  // const object = { content };
-  console.log("ngahooooo", sessionUtil.GET_URL_CONFIG());
   const objectToSend = await getObjectToSendToApiWithUserId(newTodo);
   const response = await axios.post(
     url,

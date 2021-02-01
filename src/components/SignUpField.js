@@ -66,7 +66,9 @@ const SignUpField = ({
             placeholder="Enter your name..."
           />
           {errorMessage && <p className="my-error-message">{errorMessage}</p>}
-          {successMessage && <p className="my-success-message">{successMessage}</p>}
+          {successMessage && (
+            <p className="my-success-message">{successMessage}</p>
+          )}
           <button className="my-button my-button-2" type="submit">
             Sign up
             {loadingSend && (
@@ -82,31 +84,6 @@ const SignUpField = ({
             )}
           </button>
         </Form>
-
-        {/* <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              username
-              <input
-                id="username"
-                value={username}
-                onChange={handleUsernameChange}
-              />
-            </div>
-            <div>
-              password
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={handlePasswordChange}
-              />
-            </div>
-            <button type="submit" id="login-button">
-              Login
-            </button>
-          </form>
-        </div> */}
       </Modal.Body>
     </Modal>
   );
