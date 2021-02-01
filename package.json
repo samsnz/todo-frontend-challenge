@@ -43,5 +43,6 @@
     "cypress": "^6.3.0",
     "deep-freeze": "0.0.1",
     "redux-devtools-extension": "^2.13.8"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
