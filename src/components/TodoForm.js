@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 
-const TodoForm = ({ createTodo }) => {
+const TodoForm = ({
+  content = null,
+  isPrivate = false,
+  todoId = null,
+  createTodo,
+  editTodo,
+  isToEdit = false,
+  setIsToEdit,
+}) => {
   const [newTodo, setNewTodo] = useState({
-    content: "",
+    content: content ? content : "",
     isPrivate: false,
   });
 
@@ -27,19 +35,56 @@ const TodoForm = ({ createTodo }) => {
     });
   };
 
-  return (
-    <div className="formDiv">
-      <h2>Create a new todo</h2>
+  const changeTodo = (event) => {
+    event.preventDefault();
+    console.log("todoIdd edittttt", todoId);
+    console.log(" edittttt", newTodo);
+    editTodo(todoId, newTodo);
+    setIsToEdit(false);
+  };
 
-      <form onSubmit={addTodo}>
-        <input value={newTodo.content} name="content" onChange={handleChange} />
+  // return (
+  //   <div className="formDiv">
+  //     <h2>Create a new todo</h2>
+
+  //     <form onSubmit={addTodo}>
+  //       <input value={newTodo.content} name="content" onChange={handleChange} />
+  //       <input
+  //         value={newTodo.isPrivate}
+  //         type="checkbox"
+  //         name="isPrivate"
+  //         onChange={handleChange}
+  //       />
+  //       <button type="submit">Save</button>
+  //     </form>
+  //   </div>
+  // );
+  return (
+    <div>
+      <form className="add-todo" onSubmit={todoId ? changeTodo : addTodo}>
+        <input
+          value={newTodo.content}
+          name="content"
+          onChange={handleChange}
+          className="add-todo-input"
+          type="text"
+        />
+        <span className="private-todo">Private</span>
         <input
           value={newTodo.isPrivate}
-          type="checkbox"
           name="isPrivate"
           onChange={handleChange}
+          className="add-todo-input-checkbox"
+          type="checkbox"
         />
-        <button type="submit">Save</button>
+        <button className="my-button" type="submit">
+          {isToEdit ? "Save" : "Add todo"}
+        </button>
+        {isToEdit && (
+          <span onClick={() => setIsToEdit(false)} className="my-cancel">
+            Cancel
+          </span>
+        )}
       </form>
     </div>
   );

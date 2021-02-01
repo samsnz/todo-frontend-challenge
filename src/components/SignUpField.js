@@ -1,16 +1,20 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 
-const LoginField = ({
+const SignUpField = ({
   handleSubmit,
   handleUsernameChange,
+  handleNameChange,
   handlePasswordChange,
+  handlePasswordConfirmChange,
   username,
   password,
+  passwordConfirm,
+  name,
   errorMessage,
+  successMessage,
   loadingSend,
   show,
   onHide,
@@ -24,7 +28,7 @@ const LoginField = ({
       className="my-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Login</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Sign up</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={handleSubmit}>
@@ -44,12 +48,27 @@ const LoginField = ({
             type="password"
             placeholder="Enter your password..."
           />
+
+          <Form.Label>Confirm password</Form.Label>
+          <Form.Control
+            id="passwordConfirm"
+            value={passwordConfirm}
+            onChange={handlePasswordConfirmChange}
+            type="password"
+            placeholder="Retype your password..."
+          />
+
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            id="name"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Enter your name..."
+          />
           {errorMessage && <p className="my-error-message">{errorMessage}</p>}
-          {/* <button className="my-button my-button-2" type="submit">
-            Login
-          </button> */}
-          <button className="my-button my-button-2">
-            Login
+          {successMessage && <p className="my-success-message">{successMessage}</p>}
+          <button className="my-button my-button-2" type="submit">
+            Sign up
             {loadingSend && (
               <Spinner
                 as="span"
@@ -93,4 +112,4 @@ const LoginField = ({
   );
 };
 
-export default LoginField;
+export default SignUpField;

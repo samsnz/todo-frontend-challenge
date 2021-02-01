@@ -12,10 +12,12 @@
 const GET_URL_CONFIG = () => {
   const userJSON = window.localStorage.getItem("loggedInUser");
   const user = JSON.parse(userJSON);
-  console.log("none seeee", user);
+  if (!user) {
+    return null;
+  }
   const config = {
     headers: {
-      Authorization: `bearer ${user.token}`,
+      Authorization: `bearer ${user?.token}`,
     },
   };
 

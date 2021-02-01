@@ -36,24 +36,24 @@ const createTodo = async (newTodo) => {
 
 const updateTodo = async (id, newObject) => {
   const objectToSend = getObjectToSendToApiWithUserId(newObject);
-
+  console.log("id holdssss", id);
   const response = await axios.put(
     `${url}/${id}`,
     objectToSend,
     sessionUtil.GET_URL_CONFIG()
   );
-  return response.data;
+  return response.data[0];
 };
 
 const deleteTodo = async (id) => {
   await axios.delete(`${url}/${id}`, sessionUtil.GET_URL_CONFIG());
 };
 
-const loginService = {
+const todoService = {
   getAllTodos,
   createTodo,
   updateTodo,
   deleteTodo,
 };
 
-export default loginService;
+export default todoService;
